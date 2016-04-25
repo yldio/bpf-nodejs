@@ -2,6 +2,8 @@
 
 ## Slow DNS version
 
+Does not use any DNS cacheing. 
+
 ```sh
 tomgco@magellanic $ node dns_slow.js &
 ```
@@ -30,9 +32,11 @@ TIME      PID    COMM          LATms HOST
 
 ### Results
 
-What we can see is that by default NodeJS does not cache DNS requests, so for every `http.get` we are making a DNS request (shown by each line printed out from the BPF python script), slowing our requestsby 1-5ms. (even slower if the dns server has a problem).
+What we can see is that by default NodeJS does not cache DNS requests, so for every `http.get` we are making a DNS request (shown by each line printed out from the BPF python script), slowing our requests by 1-5ms (and even slower if the dns server has a problem).
 
 ## "Fast" DNS Version
+
+Using an in-processes [DNS cache](https://www.npmjs.com/package/dnscache).
 
 ```sh
 tomgco@magellanic $ node dns_fast.js &
