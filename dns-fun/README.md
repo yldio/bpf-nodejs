@@ -30,11 +30,9 @@ TIME      PID    COMM          LATms HOST
 
 ### Results
 
-What we can see is that by default NodeJS does not cache DNS requests,
-so for every `http.get` we are making a DNS request, slowing our requests
-by 1-5ms. (even slower if the dns server has a problem).
+What we can see is that by default NodeJS does not cache DNS requests, so for every `http.get` we are making a DNS request (shown by each line printed out from the BPF python script), slowing our requestsby 1-5ms. (even slower if the dns server has a problem).
 
-## Fast DNS Version
+## "Fast" DNS Version
 
 ```sh
 tomgco@magellanic $ node dns_fast.js &
@@ -49,10 +47,7 @@ TIME      PID    COMM          LATms HOST
 
 ### Results
 
-We can see that now we have introduced caching using the `dnscache` module in 
-npm we only make one request to `google.com`.
+We can see that now we have introduced caching using the `dnscache` module found in `npm`, now we are only making one request to `google.com` even though we are making multiple requests.
 
 
-This shows how having BPF filters and scripts can allow us to diagnose issues
-with our applications on Linux machines.
-
+This shows how having BPF filters and scripts can allow us to diagnose issues with our applications on Linux machines in a scriptable fashion.
