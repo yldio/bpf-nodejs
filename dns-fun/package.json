@@ -1,0 +1,22 @@
+{
+  "name": "dns-fun",
+  "version": "1.0.0",
+  "description": "Tools to demo Node.js not caching dns requests",
+  "main": "<none>",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/yldio/bpf-nodejs.git"
+  },
+  "author": "Tom Gallacher <tom@yld.io>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/yldio/bpf-nodejs/issues"
+  },
+  "homepage": "https://github.com/yldio/bpf-nodejs#readme",
+  "dependencies": {
+    "dnscache": "0.0.4"
+  }
+}
